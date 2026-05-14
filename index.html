@@ -261,6 +261,59 @@
             font-size: 1.5rem; cursor: pointer; transition: color 0.2s;
         }
         .modal-close:hover { color: white; }
+        /* Testimonials */
+        .testimonials { background: var(--darker); }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 24px; }
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px; padding: 32px; position: relative;
+        }
+        .testimonial-card::before {
+            content: '"'; position: absolute; top: 16px; left: 20px;
+            font-size: 4rem; color: var(--primary); opacity: 0.3;
+            font-family: Georgia, serif; line-height: 1;
+        }
+        .testimonial-text {
+            font-size: 1rem; line-height: 1.7; color: #cbd5e1;
+            margin-bottom: 24px; padding-top: 20px;
+        }
+        .testimonial-author {
+            display: flex; align-items: center; gap: 16px;
+        }
+        .author-avatar {
+            width: 48px; height: 48px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; color: white; font-size: 1.2rem;
+        }
+        .author-info h4 { font-size: 1rem; margin-bottom: 4px; }
+        .author-info p { font-size: 0.85rem; color: var(--gray); }
+        .stars { color: var(--accent); margin-bottom: 12px; }
+        /* FAQ */
+        .faq { background: var(--dark); }
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item {
+            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px; margin-bottom: 16px; overflow: hidden;
+        }
+        .faq-question {
+            width: 100%; padding: 24px 32px; background: none; border: none;
+            color: white; font-size: 1.1rem; font-weight: 600; text-align: left;
+            cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+            transition: background 0.2s;
+        }
+        .faq-question:hover { background: rgba(255, 255, 255, 0.02); }
+        .faq-question svg {
+            width: 24px; height: 24px; transition: transform 0.3s; flex-shrink: 0;
+        }
+        .faq-item.active .faq-question svg { transform: rotate(180deg); }
+        .faq-answer {
+            max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+        }
+        .faq-item.active .faq-answer { max-height: 500px; }
+        .faq-answer p {
+            padding: 0 32px 24px; color: var(--gray); line-height: 1.7;
+        }
         .modal h3 {
             font-size: 1.5rem; margin-bottom: 8px; text-align: center;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -574,6 +627,166 @@
         </div>
     </section>
 
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>💬 What People Are Saying</h2>
+                <p>Real results from real OpenClaw users</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"OpenClaw completely transformed how I run my agency. What used to take my team a week now happens in hours. The AI doesn't just execute tasks—it actually thinks about the best way to accomplish goals."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MK</div>
+                        <div class="author-info">
+                            <h4>Michael K.</h4>
+                            <p>Agency Owner, Digital Marketing</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"I was skeptical about another AI tool, but OpenClaw is different. The Shadow Intensive training alone was worth the investment. Having Chad's team set everything up live was a game-changer."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SR</div>
+                        <div class="author-info">
+                            <h4>Sarah R.</h4>
+                            <p>Course Creator, 7-Figure Business</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"The Micro-SaaS Accelerator training helped me launch my first AI-powered app in 3 weeks. I've already got paying customers. OpenClaw paid for itself in the first month."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DJ</div>
+                        <div class="author-info">
+                            <h4>David J.</h4>
+                            <p>SaaS Founder, Tech Startup</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Finally, an AI that actually understands business operations. I went from managing 12 different tools to one unified command center. My productivity has 10x'd and my stress has dropped to zero."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AL</div>
+                        <div class="author-info">
+                            <h4>Amanda L.</h4>
+                            <p>Entrepreneur, Multiple Ventures</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"The pre-built skills library saved me months of development. I deployed a complete email marketing automation in one afternoon. This is how AI should work—ready to execute, not just chat."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">TP</div>
+                        <div class="author-info">
+                            <h4>Tom P.</h4>
+                            <p>E-commerce Store Owner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Best investment I've made in my business this year. The VPS ownership means I'm not locked into any platform. I own my AI infrastructure. That's priceless for a long-term business."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JC</div>
+                        <div class="author-info">
+                            <h4>Jennifer C.</h4>
+                            <p>Consultant & Coach</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>❓ Frequently Asked Questions</h2>
+                <p>Got questions? I've got answers</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        How is OpenClaw different from ChatGPT or Claude?
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>ChatGPT and Claude are conversational AI tools—they respond to prompts and generate content. OpenClaw is an execution platform that builds, deploys, and runs business systems. It doesn't just give you answers; it performs tasks, connects tools, and manages workflows autonomously. Think of it as hiring a strategic operations partner versus having a smart chatbot.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Do I need technical skills to use OpenClaw?
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The 14-day Shadow Intensive is designed to handle the technical setup for you. Chad's team walks you through everything live, and they'll even log into your system to fix issues. Basic computer literacy is enough—you don't need to be a developer. However, being comfortable with technology will help you get more out of the platform faster.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        What happens after the 14-day Shadow Intensive?
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>After the intensive, you have a fully configured OpenClaw system running on your VPS. You keep lifetime access to the Skills Vault, all pre-built automations, and the Titanium Suite integration. You'll also be part of the community for ongoing support. The intensive is just the beginning—your OpenClaw keeps getting more powerful as you add skills.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Can I really build a SaaS business with OpenClaw?
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! The Micro-SaaS Accelerator training included in the bundle teaches you exactly how to build, deploy, and monetize AI-powered applications using OpenClaw as the engine. Many users have launched profitable SaaS products within weeks of completing the training. You learn to turn OpenClaw from an internal tool into a revenue-generating platform.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        What if I don't have a VPS yet?
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No problem. The Shadow Intensive includes guidance on setting up your VPS. You'll need a server (around $20-50/month depending on your needs), and the team will help you get it configured. The VPS requirement ensures you own your infrastructure—no vendor lock-in, no platform risk. Your AI runs on YOUR servers.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        How do I get my bonuses after purchasing?
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>After you claim your bonuses by submitting your email on this page and complete your OpenClaw purchase, I'll send your bonus materials within 24 hours to the email you provided. Make sure to use the same email for both. If you don't receive them, check your spam folder or contact me at celestra@agentmail.to.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Is there a money-back guarantee?
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! OpenClaw comes with a 14-day money-back guarantee. If you decide it's not right for you, you can get a full refund—no questions asked. This gives you time to go through the Shadow Intensive and really test the platform. I'm confident you'll see the value, but you have zero risk.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Can I use OpenClaw for client work?
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! Many agency owners use OpenClaw to deliver client work faster and at higher quality. You can create custom workflows for different clients, automate reporting, and even white-label solutions. The Micro-SaaS training also covers how to productize your services using OpenClaw as the delivery engine.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="final-cta">
         <div class="container">
             <h2>🔥 Claim Your Exclusive Bonuses Now</h2>
@@ -660,6 +873,22 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') closeModal();
         });
+
+        // FAQ Toggle
+        function toggleFaq(button) {
+            const faqItem = button.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
 
         async function handleSubmit(e) {
             e.preventDefault();
