@@ -37,6 +37,19 @@
             pointer-events: none;
         }
         .hero-content { position: relative; z-index: 1; text-align: center; }
+        .hero-logo {
+            max-width: 400px; width: 90%; height: auto;
+            margin: 0 auto 32px; display: block;
+            filter: drop-shadow(0 10px 30px rgba(99, 102, 241, 0.4));
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @media (max-width: 768px) {
+            .hero-logo { max-width: 300px; margin-bottom: 24px; }
+        }
         .badge {
             display: inline-block; background: linear-gradient(135deg, var(--accent), #f97316);
             color: white; padding: 8px 20px; border-radius: 50px;
@@ -318,6 +331,7 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
+                <img src="openclaw-logo.png" alt="OpenClaw Mega Bundle" class="hero-logo">
                 <span class="badge">🔥 Limited Launch Special</span>
                 <h1>OpenClaw AI Platform <span>Review</span><br>+ Exclusive Bonuses</h1>
                 <p class="hero-subtitle">The fully integrated AI Command Center that builds, manages, and runs your entire business operation. Not just a chatbot—a true strategic partner.</p>
