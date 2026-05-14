@@ -225,6 +225,76 @@
             background: rgba(255, 255, 255, 0.03); border-radius: 12px;
             font-size: 0.85rem; color: var(--gray); line-height: 1.6;
         }
+        /* Email Capture Modal */
+        .modal-overlay {
+            display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(8px);
+            z-index: 1000; justify-content: center; align-items: center;
+            padding: 20px;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal {
+            background: var(--dark); border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 24px; padding: 40px; max-width: 500px; width: 100%;
+            position: relative; animation: modalSlide 0.3s ease;
+        }
+        @keyframes modalSlide {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .modal-close {
+            position: absolute; top: 16px; right: 16px;
+            background: none; border: none; color: var(--gray);
+            font-size: 1.5rem; cursor: pointer; transition: color 0.2s;
+        }
+        .modal-close:hover { color: white; }
+        .modal h3 {
+            font-size: 1.5rem; margin-bottom: 8px; text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .modal > p { text-align: center; color: var(--gray); margin-bottom: 24px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block; margin-bottom: 8px; font-size: 0.9rem; color: #cbd5e1;
+        }
+        .form-group input {
+            width: 100%; padding: 14px 16px; background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px;
+            color: white; font-size: 1rem; transition: border-color 0.2s;
+        }
+        .form-group input:focus {
+            outline: none; border-color: var(--primary);
+        }
+        .bonuses-select {
+            background: rgba(255, 255, 255, 0.03); border-radius: 12px;
+            padding: 16px; margin-bottom: 24px;
+        }
+        .bonuses-select p { font-size: 0.9rem; color: #cbd5e1; margin-bottom: 12px; }
+        .bonus-checkbox {
+            display: flex; align-items: flex-start; gap: 12px;
+            padding: 10px 0; cursor: pointer;
+        }
+        .bonus-checkbox input[type="checkbox"] {
+            width: 20px; height: 20px; accent-color: var(--primary);
+            cursor: pointer;
+        }
+        .bonus-checkbox label {
+            font-size: 0.9rem; color: var(--gray); cursor: pointer;
+        }
+        .bonus-checkbox label strong { color: white; }
+        .btn-submit {
+            width: 100%; padding: 16px; border: none; cursor: pointer;
+            font-size: 1.1rem; justify-content: center;
+        }
+        .btn-submit:disabled {
+            opacity: 0.6; cursor: not-allowed;
+        }
+        .form-status {
+            text-align: center; margin-top: 16px; font-size: 0.9rem;
+        }
+        .form-status.success { color: var(--success); }
+        .form-status.error { color: var(--danger); }
         footer {
             background: var(--darker); border-top: 1px solid rgba(255, 255, 255, 0.05);
             padding: 40px 0; text-align: center;
@@ -257,10 +327,10 @@
                     <p class="price">$349 x 3 payments</p>
                     <p style="margin-top: 12px; font-size: 0.95rem; color: var(--accent);">+ Get $991 in Exclusive Bonuses FREE</p>
                 </div>
-                <a href="https://matildacole.com/recommends-openclaw-cracked" class="btn btn-large">
+                <button class="btn btn-large" onclick="openModal()">
                     Get OpenClaw + My Bonuses
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
-                </a>
+                </button>
             </div>
         </div>
     </section>
@@ -451,10 +521,10 @@
                 <p class="installment">x 3 monthly payments (or single payment option)</p>
                 <span class="savings">You Save 81.5%</span>
                 <br>
-                <a href="https://matildacole.com/recommends-openclaw-cracked" class="btn btn-large">
+                <button class="btn btn-large" onclick="openModal()">
                     Get OpenClaw + My Bonuses
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
-                </a>
+                </button>
                 <div class="guarantee">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                     <div class="guarantee-text">
@@ -494,20 +564,152 @@
         <div class="container">
             <h2>🔥 Claim Your Exclusive Bonuses Now</h2>
             <p>These bonuses are only available when you purchase through my link.<br>Don't leave $991 on the table.</p>
-            <a href="https://matildacole.com/recommends-openclaw-cracked" class="btn btn-large">
+            <button class="btn btn-large" onclick="openModal()">
                 Get OpenClaw + $991 in Bonuses
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
-            </a>
+            </button>
             <div class="disclaimer">
                 <strong>Affiliate Disclosure:</strong> I may receive a commission if you purchase through my link at no additional cost to you. I only recommend products I genuinely believe in. Bonuses will be delivered via email within 24 hours of purchase confirmation. Make sure to clear cookies and use my link to ensure proper tracking.
             </div>
         </div>
     </section>
 
+    <!-- Email Capture Modal -->
+    <div class="modal-overlay" id="captureModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h3>🎁 Claim Your Bonuses</h3>
+            <p>Enter your details to unlock $991 in exclusive bonuses</p>
+            <form id="bonusForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+                <div class="bonuses-select">
+                    <p>Select the bonuses you want to claim:</p>
+                    <div class="bonus-checkbox">
+                        <input type="checkbox" id="bonus1" name="bonuses" value="AI Business Automation Playbook" checked>
+                        <label for="bonus1"><strong>The AI Business Automation Playbook</strong> ($297 value)</label>
+                    </div>
+                    <div class="bonus-checkbox">
+                        <input type="checkbox" id="bonus2" name="bonuses" value="The Strategic Prompt Library" checked>
+                        <label for="bonus2"><strong>The Strategic Prompt Library</strong> ($197 value)</label>
+                    </div>
+                    <div class="bonus-checkbox">
+                        <input type="checkbox" id="bonus3" name="bonuses" value="1-on-1 OpenClaw Strategy Session" checked>
+                        <label for="bonus3"><strong>1-on-1 OpenClaw Strategy Session</strong> ($497 value)</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-submit" id="submitBtn">
+                    Continue to OpenClaw + Claim Bonuses
+                </button>
+                <div class="form-status" id="formStatus"></div>
+            </form>
+        </div>
+    </div>
+
     <footer>
         <div class="container">
             <p>&copy; 2026 Matilda Cole. All rights reserved. | <a href="https://matildacole.com">matildacole.com</a></p>
         </div>
     </footer>
+
+    <script>
+        const AFFILIATE_URL = 'https://matildacole.com/recommends-openclaw-cracked';
+        const GC_API_KEY = '38ad5f5098bf2c4d2ee1655a3fc437eedd4bb089316319104260f7021321cde7';
+        const GC_API_URL = 'https://api.globalcontrol.io/api/ai/contacts';
+
+        function openModal() {
+            document.getElementById('captureModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('captureModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on overlay click
+        document.getElementById('captureModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        async function handleSubmit(e) {
+            e.preventDefault();
+            const submitBtn = document.getElementById('submitBtn');
+            const statusDiv = document.getElementById('formStatus');
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processing...';
+            statusDiv.textContent = '';
+            statusDiv.className = 'form-status';
+
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            
+            // Get selected bonuses
+            const selectedBonuses = Array.from(document.querySelectorAll('input[name="bonuses"]:checked'))
+                .map(cb => cb.value);
+
+            try {
+                // Add contact to Global Control
+                const contactData = {
+                    email: email,
+                    firstName: firstName,
+                    lastName: lastName,
+                    tags: ['openclaw-bonus-claim', 'affiliate-funnel'],
+                    customFields: {
+                        bonuses_claimed: selectedBonuses.join(', '),
+                        bonus_total_value: '$991',
+                        source: 'OpenClaw AI Review Page',
+                        date_claimed: new Date().toISOString()
+                    }
+                };
+
+                const response = await fetch(GC_API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${GC_API_KEY}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(contactData)
+                });
+
+                if (response.ok || response.status === 409) { // 409 = contact already exists
+                    statusDiv.textContent = '✓ Success! Redirecting to OpenClaw...';
+                    statusDiv.className = 'form-status success';
+                    
+                    // Redirect to affiliate link after short delay
+                    setTimeout(() => {
+                        window.location.href = AFFILIATE_URL;
+                    }, 1500);
+                } else {
+                    throw new Error('Failed to save contact');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                // Still redirect even if GC fails - don't lose the sale
+                statusDiv.textContent = '✓ Proceeding to OpenClaw...';
+                statusDiv.className = 'form-status success';
+                setTimeout(() => {
+                    window.location.href = AFFILIATE_URL;
+                }, 1000);
+            }
+        }
+    </script>
 </body>
 </html>
